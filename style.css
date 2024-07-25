@@ -1,0 +1,215 @@
+:root {
+  --main-color: #fdb448;
+  --main-color-o: #fdb448aa;
+  --second-color: white;
+  --background-color: #efefef;
+  --border-color: #ddd;
+
+  --border-width: 1px;
+  --border-style: solid;
+
+  --spacing: 32px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:not(h1) {
+  font-size: 16px;
+  font-family: 'Cairo', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding: 32px;
+  background-color: var(--background-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#all {
+  margin-top: var(--spacing);
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Lobster Two', cursive;
+  text-align: center;
+}
+
+input[type='text'] {
+  background-color: transparent;
+  width: 16px;
+  max-width: 200px;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  outline: none;
+  color: var(--main-color);
+  overflow-x: scroll;
+}
+
+::selection {
+  color: var(--second-color);
+  background: var(--main-color);
+}
+
+input[type='submit'] {
+  padding: 4px 16px;
+  background-color: transparent;
+  color: var(--main-color);
+  cursor: pointer;
+  outline: none;
+  border: 1px solid var(--main-color);
+  border-radius: 4px;
+  transition: 0.5s;
+  display: block;
+  margin-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type='submit']:hover {
+  background-color: var(--main-color);
+  color: var(--second-color);
+}
+
+.matrixDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+  gap: 64px;
+  margin-bottom: 128px;
+  padding: 16px;
+}
+
+.matrixDiv .rows {
+  position: relative;
+}
+
+.matrixDiv .rows [class*='row'] {
+  margin-bottom: -8.8px;
+}
+
+.matrixDiv .rows .arrow {
+  position: absolute;
+  width: 1px;
+  height: 125%;
+  background-color: black;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.matrixDiv .rows .arrow.left {
+  left: -16px;
+}
+
+.matrixDiv .rows .arrow.right {
+  right: -16px;
+}
+
+.matrixDiv .rows .arrow::after,
+.matrixDiv .rows .arrow::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 1px;
+  background-color: black;
+}
+
+.matrixDiv .rows .arrow.left::before {
+  left: 0;
+  top: 0px;
+}
+
+.matrixDiv .rows .arrow.left::after {
+  left: 0;
+  bottom: 0px;
+}
+
+.matrixDiv .rows .arrow.right::before {
+  right: 0px;
+  top: 0px;
+}
+
+.matrixDiv .rows .arrow.right::after {
+  right: 0px;
+  bottom: 0px;
+}
+
+.matrixDiv .rows.activeMatrix {
+  background-color: #fdb44833;
+}
+
+.matrixDiv .rows .activeAdder {
+  background-color: #33333315;
+}
+
+.matrixDiv .rows .activeRow {
+  background-color: #33333333;
+}
+
+.matrixDiv .rows .activeColumn {
+  background-color: #fdb44833;
+}
+
+.matrixDiv .rows .activeMultiplier {
+  color: #fdb448;
+}
+
+.matrixDiv .rows span.currentAdder {
+  color: #fdb448;
+}
+
+.matrixDiv .rows span.activeRow.activeColumn {
+  background-color: #98743e33;
+}
+
+.matrixDiv .rows span.activeAdder.activeColumn {
+  background-color: #98743e23;
+}
+
+.matrixDiv .rows span {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  overflow-x: hidden;
+  text-align: center;
+  line-height: 64px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.UserEquationP {
+  display: inline-block;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--main-color-o);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-color);
+}
